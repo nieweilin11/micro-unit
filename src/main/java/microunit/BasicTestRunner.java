@@ -26,14 +26,14 @@ public class BasicTestRunner extends TestRunner {
         try {
             testMethod.invoke(instance);
             results.onSuccess(testMethod);
-            Logger.trace("{} is on Success!", testMethod.getName());
+            Logger.trace("{} Success!", testMethod.getName());
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
             Logger.error(e, "Exceptions during fabrication {}");
             if (cause instanceof AssertionError) {
-                Logger.trace("{} is on Failure!", testMethod.getName());
+                Logger.trace("{} Failure!", testMethod.getName());
             } else {
-                Logger.trace("{} is on Error!", testMethod.getName());
+                Logger.trace("{} Error!", testMethod.getName());
             }
         }
     }
