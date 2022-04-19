@@ -1,5 +1,7 @@
 package microunit;
 
+import org.tinylog.Logger;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -48,7 +50,7 @@ public abstract class TestRunner {
                 Object instance = testClass.getConstructor().newInstance();
                 invokeTestMethod(method, instance, accumulator);
             }
-            System.out.println(accumulator);
+            Logger.info(accumulator);
         } catch (ReflectiveOperationException | IllegalArgumentException e) {
             throw new InvalidTestClassException(e);
         }
