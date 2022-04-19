@@ -16,6 +16,11 @@
             <organization>Faculty of Informatics, University of Debrecen</organization>
             <organizationUrl>http://www.inf.unideb.hu/</organizationUrl>
         </developer>
+        <developer>
+            <id>Nie</id>
+            <name>Nie Weilin</name>
+            <email>1025092148@qq.com</email>
+        </developer>
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

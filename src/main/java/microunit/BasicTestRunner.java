@@ -1,5 +1,7 @@
 package microunit;
 
+import org.tinylog.Logger;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -24,13 +26,14 @@ public class BasicTestRunner extends TestRunner {
         try {
             testMethod.invoke(instance);
             results.onSuccess(testMethod);
+            Logger.trace("{} is on Success!", testMethod.getName());
         } catch (InvocationTargetException e) {
             Throwable cause = e.getCause();
-            cause.printStackTrace(System.out);
+            Logger.error(e, "Exceptions during fabrication {}");
             if (cause instanceof AssertionError) {
-                results.onFailure(testMethod);
+                Logger.trace("{} is on Failure!", testMethod.getName());
             } else {
-                results.onError(testMethod);
+                Logger.trace("{} is on Error!", testMethod.getName());
             }
         }
     }
