@@ -1,3 +1,0 @@
-writer = console
-writer.level = all
-writer.format = {level}: {message|indent=4}
